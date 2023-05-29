@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NAAFY Bank - Admin Panel</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/tooplate-mini-finance.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar sticky-top flex-md-nowrap">
+        <!-- Navbar content -->
+        <a class="navbar-brand px-3" href="#">NAAFY Bank - Admin Panel</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="AdminLogin.html">Logout</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                <!-- Sidebar content -->
+                <div class="position-sticky pt-3">
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Send Notifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Create Employee Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Create Client Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Registered Accounts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Manage Organizations</a>
+                        </li>
+                        
+                        
+                    </ul>
+                    
+                </div>
+            </nav>
+
+            <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                <div class="title-group mb-3">
+                    <h1 class="h2 mb-0">Admin Panel</h1>
+                </div>
+
+                <div class="row my-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block custom-block-dashboard bg-white">
+                            <!-- Send Notifications content -->
+                            <h3>Send Notifications</h3>
+                            <form id="notificationForm">
+                                <div class="mb-3">
+                                    <label for="notificationMessage" class="form-label">Message</label>
+                                    <textarea class="form-control" id="notificationMessage" rows="3" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Notification</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block custom-block-dashboard bg-white">
+                            <!-- Manage Organizations content -->
+                            <h3>Manage Organizations</h3>
+                            <form id="organizationForm">
+                                <div class="mb-3">
+                                    <label for="organizationName" class="form-label">Organization Name</label>
+                                    <input type="text" class="form-control" id="organizationName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="organizationDescription" class="form-label">Organization Description</label>
+                                    <textarea class="form-control" id="organizationDescription" rows="3" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Organization</button>
+                            </form>
+                            <h3>Organizations List</h3>
+                            <ul id="organizationsList">
+                                <!-- Example organization -->
+                                <li>
+                                    <span class="organization-name">Organization A</span> - <span class="organization-description">Description of Organization A</span>
+                                    <button class="btn btn-danger btn-sm remove-button">Remove</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>                
+                
+
+                <div class="row my-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block custom-block-dashboard bg-white">
+                            <!-- Create Employee Account content -->
+                            <h3>Create Employee Account</h3>
+                            <form id="employeeAccountForm">
+                                <div class="mb-3">
+                                    <label for="employeeName" class="form-label">Employee Name</label>
+                                    <input type="text" class="form-control" id="employeeName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="employeeEmail" class="form-label">Employee Email</label>
+                                    <input type="email" class="form-control" id="employeeEmail" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Create Account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block custom-block-dashboard bg-white">
+                            <!-- Create Client Account content -->
+                            <h3>Create Client Account</h3>
+                            <form id="clientAccountForm">
+                            
+                                <div class="mb-3">
+                                    <label for="clientName" class="form-label">Client Name</label>
+                                    <input type="text" class="form-control" id="clientName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="clientNationalId" class="form-label">National ID</label>
+                                    <input type="text" class="form-control" id="clientNationalId" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="clientMobileNumber" class="form-label">Mobile Number</label>
+                                    <input type="text" class="form-control" id="clientMobileNumber" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="clientAccountNumber" class="form-label">Account Number</label>
+                                    <input type="text" class="form-control" id="clientAccountNumber" required>
+                                </div>                                
+                                <button type="submit" class="btn btn-primary">Create Account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block custom-block-dashboard bg-white">
+                            <h3>Client Accounts</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Account ID</th>
+                                        <th>Name</th>                                     
+                                        <th>Email</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Account Number</th>
+                                        <th>Referral Code</th>
+                                        <th>Action</th>    
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody id="registeredAccountsList">
+                                    <!-- Example client account -->
+                                    <tr>
+                                       
+                                        <td>C46</td>
+                                        <td>John Doe</td>
+                                        <td>john.doe@example.com</td>
+                                        <td>johndoe</td>
+                                        <td>1332</td>
+                                        <td>A123</td>
+                                        <td>AD23</td>
+                                        <td>
+                                            <button class="btn btn-danger btn-sm delete-button">Delete</button>
+                                            <button class="btn btn-warning btn-sm unblock-button">Unblock</button>
+                                        </td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block custom-block-dashboard bg-white">
+                            <!-- Employee Accounts content -->
+<h3>Employee Accounts</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>BankerId</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="employeeAccountsList">
+        <!-- Example employee account -->
+        <tr>
+            
+                       <td>E123</td>
+                       <td>John Doe</td>
+                       <td>john.doe@example.com</td>
+                       <td>jhon.doe</td>
+                       <td>123</td>
+                       <td>
+                        <button class="btn btn-danger btn-sm delete-button">Delete</button>
+                        <button class="btn btn-warning btn-sm unblock-button">Unblock</button>
+                               </td>
+                    </tr>
+                 </tbody>
+                   </table>
+                    </div>
+                    </div>
+                </div>
+            
+            </main>
+        </div>
+    </div>
+    <!-- JS FILES -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        // JavaScript code to handle form submissions and dynamically update the registered accounts table
+        $(document).ready(function() {
+            // Handle Employee Account form submission
+            $('#employeeAccountForm').submit(function(event) {
+    event.preventDefault();
+    // Get the employee name and email from the form
+    var employeeName = $('#employeeName').val();
+    var employeeEmail = $('#employeeEmail').val();
+    // Generate a random referral code
+    var referralCode = generateReferralCode();
+    // Generate a username and password
+    var username = generateUsername(employeeName);
+    var password = generatePassword();
+
+    // Create a new row in the registered accounts table
+    var newRow = $('<tr>');
+    newRow.append($('<td>').text('E123')); // Example employee account ID
+    newRow.append($('<td>').text(employeeName));
+    newRow.append($('<td>').text(employeeEmail));
+
+    newRow.append($('<td>').text(username));
+    newRow.append($('<td>').text(password));
+
+    newRow.append($('<td>').html('<button class="btn btn-danger btn-sm delete-button">Delete</button><button class="btn btn-warning btn-sm unblock-button">Unblock</button>'));
+
+    // Append the new row to the registered accounts table
+    $('#employeeAccountsList').append(newRow);
+
+    // Clear the form fields
+    $('#employeeName').val('');
+    $('#employeeEmail').val('');
+});
+
+            // Handle Organization form submission
+
+// Handle Remove button click
+$('#organizationsList').on('click', '.remove-button', function() {
+    $(this).closest('li').remove();
+});
+
+// Handle Organization form submission
+$('#organizationForm').submit(function(event) {
+    event.preventDefault();
+    // Get the organization name and description from the form
+    var organizationName = $('#organizationName').val();
+    var organizationDescription = $('#organizationDescription').val();
+
+    // Create a new list item for the organization
+    var newListItem = $('<li>');
+    newListItem.append($('<span>').addClass('organization-name').text(organizationName));
+    newListItem.append(' - ');
+    newListItem.append($('<span>').addClass('organization-description').text(organizationDescription));
+    newListItem.append($('<button>').addClass('btn btn-danger btn-sm remove-button').text('Remove'));
+
+    // Append the new list item to the organizations list
+    $('#organizationsList').append(newListItem);
+
+    // Clear the form fields
+    $('#organizationName').val('');
+    $('#organizationDescription').val('');
+});
+
+
+
+// Handle Client Account form submission
+$('#clientAccountForm').submit(function(event) {
+    event.preventDefault();
+    // Get the client name, national ID, mobile number, and account number from the form
+    var clientName = $('#clientName').val();
+    var clientNationalId = $('#clientNationalId').val();
+    var clientMobileNumber = $('#clientMobileNumber').val();
+    var clientAccountNumber = $('#clientAccountNumber').val();
+    // Generate a username and password
+    var username = generateUsername(clientName);
+    var password = generatePassword();
+    // Generate a referral code
+    var referralCode = generateReferralCode();
+
+    // Create a new row in the client accounts table
+    var newRow = $('<tr>');
+    newRow.append($('<td>').text('C456')); // Example client account ID
+    newRow.append($('<td>').text(clientName));
+    newRow.append($('<td>').text(clientNationalId));
+    newRow.append($('<td>').text(username));
+    newRow.append($('<td>').text(password));
+    newRow.append($('<td>').text(clientAccountNumber));
+    newRow.append($('<td>').text(referralCode));
+    newRow.append($('<td>').html('<button class="btn btn-danger btn-sm delete-button">Delete</button><button class="btn btn-warning btn-sm unblock-button">Unblock</button>'));
+
+    // Append the new row to the client accounts table
+    $('#registeredAccountsList').append(newRow);
+
+    // Clear the form fields
+    $('#clientName').val('');
+    $('#clientNationalId').val('');
+    $('#clientMobileNumber').val('');
+    $('#clientAccountNumber').val('');
+
+    // Display the generated username, password, and referral code
+    alert('Username: ' + username + '\nPassword: ' + password + '\nReferral Code: ' + referralCode);
+});
+
+// Generate a username based on the client name
+function generateUsername(clientName) {
+    // Convert client name to lowercase and remove spaces
+    var formattedName = clientName.toLowerCase().replace(/\s/g, '');
+    // Append a random number between 1000 and 9999
+    var randomNumber = Math.floor(Math.random() * 9000) + 1000;
+    return formattedName + randomNumber;
+}
+
+// Generate a random password
+function generatePassword() {
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var password = '';
+    for (var i = 0; i < 8; i++) {
+        password += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return password;
+}
+
+// Generate a random referral code
+function generateReferralCode() {
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var referralCode = '';
+    for (var i = 0; i < 8; i++) {
+        referralCode += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return referralCode;
+}
+
+            // Handle delete button click
+            $('#registeredAccountsList').on('click', '.delete-button', function() {
+                $(this).closest('tr').remove();
+            });
+
+            // Handle block/unblock button click
+            $('#registeredAccountsList').on('click', '.block-button, .unblock-button', function() {
+                var row = $(this).closest('tr');
+                if ($(this).hasClass('block-button')) {
+                    row.addClass('table-danger');
+                    $(this).removeClass('block-button').addClass('unblock-button').text('Unblock');
+                } else {
+                    row.removeClass('table-danger');
+                    $(this).removeClass('unblock-button').addClass('block-button').text('Block');
+                }
+            });
+
+        });
+        // Handle delete button click for employee accounts
+    $('#employeeAccountsList').on('click', '.delete-button', function() {
+        $(this).closest('tr').remove();
+    });
+
+    // Handle block/unblock button click for employee accounts
+    $('#employeeAccountsList').on('click', '.block-button, .unblock-button', function() {
+        var row = $(this).closest('tr');
+        if ($(this).hasClass('block-button')) {
+            row.addClass('table-danger');
+            $(this).removeClass('block-button').addClass('unblock-button').text('Unblock');
+        } else {
+            row.removeClass('table-danger');
+            $(this).removeClass('unblock-button').addClass('block-button').text('Block');
+        }
+    });
+    </script>
+</body>
+</html>
